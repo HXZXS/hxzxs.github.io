@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<meta name="color-scheme" content="light dark">
+<title>棱彩维度</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue}
+:root{
+  --c1:#f677b0;
+  --c2:#df7ff2;
+  --c3:#8c7ff2;
+  --c4:#7fd0f2;
+  --c5:#7ff2d3;
+  --c6:#7ff2a0;
+  --c7:#adf27f;
+  --c8:#e7f27f;
+  --c9:#ecaa64;
+  --bg:#fcfefe;
+  --card:#ffffff;
+  --text:#333;
+  --sub:#666;
+  --bd:rgba(0,0,0,0.06);
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --bg:#1e293b;
+    --card:#242b3d;
+    --text:#f1f5f9;
+    --sub:#94a3b8;
+    --bd:rgba(255,255,255,0.05);
+  }
+}
+body{
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding:20px;
+  transition:all 0.3s ease;
+}
+.wrap{max-width:900px;margin:0 auto;}
+
+.head{text-align:center;margin:40px 0 45px;}
+.head h1{
+  font-size:36px;
+  font-weight:300;
+  background:linear-gradient(90deg,var(--c1),var(--c2),var(--c3),var(--c4),var(--c5),var(--c6),var(--c7),var(--c8),var(--c9));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.head p{color:var(--sub);margin-top:8px;font-size:15px;}
+
+.premium{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-bottom:35px;
+}
+.premium .item{
+  background:var(--card);
+  border-radius:24px;
+  padding:36px 24px;
+  text-align:center;
+  border:1px solid var(--bd);
+  transition:0.3s ease;
+}
+.premium .item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+.premium .item h2{font-size:26px;margin-bottom:6px;}
+.premium .item small{color:var(--sub);font-size:13px;display:block;margin-bottom:22px;}
+.premium .item button{
+  padding:10px 26px;
+  border-radius:16px;
+  border:none;
+  background:linear-gradient(90deg,var(--c3),var(--c4));
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.sec{margin-bottom:30px;}
+.sec-tit{
+  font-size:18px;
+  font-weight:600;
+  margin-bottom:14px;
+  padding-left:12px;
+  border-left:4px solid var(--c4);
+}
+.list{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:12px;
+}
+.file{
+  background:var(--card);
+  border-radius:16px;
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border:1px solid var(--bd);
+  transition:0.25s ease;
+  cursor:pointer;
+}
+.file:hover{
+  border-color:var(--c4);
+  transform:translateX(4px);
+}
+.file .name{font-size:14px;flex:1;}
+.file button{
+  padding:6px 12px;
+  border-radius:12px;
+  border:none;
+  background:linear-gradient(90deg,var(--c4),var(--c5));
+  color:#fff;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.music-load{
+  position:fixed;
+  inset:0;
+  background:rgba(255,255,255,0.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+.music {
+  width: 175px;
+  height: 100px;
+  display: flex;
+}
+.music span {
+  width: 6px;
+  border-radius: 18px;
+  margin-right: 6px;
+}
+.music span:nth-child(1) {animation: bar1 2s 0.2s infinite linear;}
+.music span:nth-child(2) {animation: bar2 2s 0.4s infinite linear;}
+.music span:nth-child(3) {animation: bar3 2s 0.6s infinite linear;}
+.music span:nth-child(4) {animation: bar4 2s 0.8s infinite linear;}
+.music span:nth-child(5) {animation: bar5 2s 1.0s infinite linear;}
+.music span:nth-child(6) {animation: bar6 2s 1.2s infinite linear;}
+.music span:nth-child(7) {animation: bar7 2s 1.4s infinite linear;}
+.music span:nth-child(8) {animation: bar8 2s 1.6s infinite linear;}
+.music span:nth-child(9) {animation: bar9 2s 1.8s infinite linear;}
+
+@keyframes bar1 {
+  0%{background:#f677b0;margin-top:25%;height:10%;}
+  50%{background:#f677b0;height:100%;margin-top:0%;}
+  100%{background:#f677b0;height:10%;margin-top:25%;}
+}
+@keyframes bar2 {
+  0%{background:#df7ff2;margin-top:25%;height:10%;}
+  50%{background:#df7ff2;height:100%;margin-top:0%;}
+  100%{background:#df7ff2;height:10%;margin-top:25%;}
+}
+@keyframes bar3 {
+  0%{background:#8c7ff2;margin-top:25%;height:10%;}
+  50%{background:#8c7ff2;height:100%;margin-top:0%;}
+  100%{background:#8c7ff2;height:10%;margin-top:25%;}
+}
+@keyframes bar4 {
+  0%{background:#7fd0f2;margin-top:25%;height:10%;}
+  50%{background:#7fd0f2;height:100%;margin-top:0%;}
+  100%{background:#7fd0f2;height:10%;margin-top:25%;}
+}
+@keyframes bar5 {
+  0%{background:#7ff2d3;margin-top:25%;height:10%;}
+  50%{background:#7ff2d3;height:100%;margin-top:0%;}
+  100%{background:#7ff2d3;height:10%;margin-top:25%;}
+}
+@keyframes bar6 {
+  0%{background:#7ff2a0;margin-top:25%;height:10%;}
+  50%{background:#7ff2a0;height:100%;margin-top:0%;}
+  100%{background:#7ff2a0;height:10%;margin-top:25%;}
+}
+@keyframes bar7 {
+  0%{background:#adf27f;margin-top:25%;height:10%;}
+  50%{background:#adf27f;height:100%;margin-top:0%;}
+  100%{background:#adf27f;height:10%;margin-top:25%;}
+}
+@keyframes bar8 {
+  0%{background:#e7f27f;margin-top:25%;height:10%;}
+  50%{background:#e7f27f;height:100%;margin-top:0%;}
+  100%{background:#e7f27f;height:10%;margin-top:25%;}
+}
+@keyframes bar9 {
+  0%{background:#ecaa64;margin-top:25%;height:10%;}
+  50%{background:#ecaa64;height:100%;margin-top:0%;}
+  100%{background:#ecaa64;height:10%;margin-top:25%;}
+}
+
+.toast{
+  position:fixed;
+  top:30px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(0,0,0,0.7);
+  color:#fff;
+  padding:10px 20px;
+  border-radius:12px;
+  font-size:14px;
+  opacity:0;
+  pointer-events:none;
+  transition:0.3s ease;
+  z-index:999;
+}
+.toast.show{opacity:1;}
+
+.hide-iframe{
+  position:absolute;
+  left:-9999px;
+  top:-9999px;
+  width:0;
+  height:0;
+  opacity:0;
+  pointer-events:none;
+}
+
+@media(max-width:768px){
+  .premium{grid-template-columns:1fr;}
+  .list{grid-template-columns:1fr;}
+  .head h1{font-size:30px;}
+}
+</style>
+</head>
+<body>
+
+<div class="music-load" id="loading">
+  <div class="music">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<iframe id="dFrame" class="hide-iframe"></iframe>
+
+<div class="wrap">
+  <div class="head">
+    <h1>棱彩维度 资源下载</h1>
+    <p>全系列资源 · 一键高速下载</p>
+  </div>
+
+  <div class="premium">
+    <div class="item" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9iMjdlOTMwZGY2NjFiMzFhL0lRQ25yS0FwTndVWlRaRGhKcWVSLWw0cEFSR3pvMlVpZHJZYk1GVDVtOW5xbGE4.mcworld">
+      <h2>永恒随想录</h2>
+      <small>奇点纪元典藏版</small>
+      <button onclick="startDown(this)">立即下载</button>
+    </div>
+    <div class="item" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9iMjdlOTMwZGY2NjFiMzFhL0lRRFJ5WFhSUXB5YlNZcWFCRUNCdDhRaEFXLTB0c2pZU0xxcnV0OW9ManNxTFVR..mcworld">
+      <h2>初浔计划</h2>
+      <small>传奇典藏版</small>
+      <button onclick="startDown(this)">立即下载</button>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-tit">RE系列</div>
+    <div class="list">
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/ihX9w3lui7yj"><span class="name">解密公司RE·Zero：重启.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iOBVa3lui75a"><span class="name">解密公司RE1末日来临.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/ikVpH3lui7wh"><span class="name">解密公司RE2逃离黑夜.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/ikVpH3lui7wh"><span class="name">解密公司RE3无人岛战役.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iNe1j3lulxti"><span class="name">解密公司RE4米苏拉战争.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/ipU783lui81c"><span class="name">解密公司RE5战神归来.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/ik8ZM3lui7te"><span class="name">解密公司RE6封锁线.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/ihmef3lui7gb"><span class="name">解密公司RE7风云城行动.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/i1WoV3lui7mh"><span class="name">解密公司RE8至寒复仇.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iyz0v3lum0eb"><span class="name">解密公司RE9再见夕阳.zip</span><button onclick="startDown(this)">下载</button></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-tit">解密公司正篇</div>
+    <div class="list">
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/i0kHY3luhwpe"><span class="name">解密公司22校园突击队.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/ikCmH3luhvle"><span class="name">解密公司23我的星球.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iy6B83luhw7g"><span class="name">解密公司24壹梦千寻.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/icvui3luhxuf"><span class="name">解密公司25未来救援.zip</span><button onclick="startDown(this)">下载</button></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-tit">棱镜国度故事模式</div>
+    <div class="list">
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iv2MB3luhsuf"><span class="name">解密公司26棱镜国度.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iF93j3luhveh"><span class="name">解密公司27基岩计划.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iBOIo3luho7i"><span class="name">解密公司28暗夜边境.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/i3Fyn3luhqib"><span class="name">解密公司29真理之路.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/i59FG3luhpgd"><span class="name">解密公司30决战前夜.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/ih6hd3luhlqj"><span class="name">解密公司31天神领域.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/icof83luhmpe"><span class="name">解密公司32永恒誓言.zip</span><button onclick="startDown(this)">下载</button></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-tit">精品作品</div>
+    <div class="list">
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/i8SsE3luoove"><span class="name">解密公司X5救世行动.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iENpb3luop3c"><span class="name">风云城的毁灭：生存日(典藏版).zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/it4qO3luop7g"><span class="name">米苏拉战争：生存日.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iND2i3luop9i"><span class="name">飘飘浮岛：探险家(典藏版).zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iKuZg3luophg"><span class="name">我的星球：废土幸存者(典藏版).zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9iMjdlOTMwZGY2NjFiMzFhL0lRQjF6RW84SDBPR1Q1WGVwaERIZkRjYkFRc3ZVUmZ2YWdOMnJRT0NFdjV6bWJv.zip"><span class="name">明日之后：幸存者.zip</span><button onclick="startDown(this)">下载</button></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-tit">皮肤包</div>
+    <div class="list">
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iHhvG3luplta"><span class="name">棱镜国度皮肤包.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/i634f3luplub"><span class="name">永恒随想录皮肤包.zip</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="lanzou" data-url="https://hxzxs.lanzouv.com/iHhvG3luplta"><span class="name">解密公司皮肤包.zip</span><button onclick="startDown(this)">下载</button></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-tit">材质包 & 引擎</div>
+    <div class="list">
+      <div class="file" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9iMjdlOTMwZGY2NjFiMzFhL0lRQkh0MWxJckQtMVRiRFZzdlVGQi12R0FVakI0NnRwQlJNQmd4NDhBeWY1LWZv.mcpack"><span class="name">材质包正式版.mcpack</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9iMjdlOTMwZGY2NjFiMzFhL0lRRFpKNnNqbTVmQ1RaYlZjaklGMV90N0FlU09jUnpMU0NyN3UzZG9sdVNrTHZF.mcpack"><span class="name">材质包轻量化LTS版.mcpack</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9iMjdlOTMwZGY2NjFiMzFhL0lRRFpKNnNqbTVmQ1RaYlZjaklGMV90N0FlU09jUnpMU0NyN3UzZG9sdVNrTHZF.mcpack"><span class="name">〖高配〗光线追踪包.mcpack</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy9iMjdlOTMwZGY2NjFiMzFhL0lRQ0IzMEx2RmNVZ1FaQkE2T0lWMHFOaEFXR1FIb1R4dHNxcmtSTFV6S2xyUzZv.mcaddon"><span class="name">天圆引擎正式版.mcaddon</span><button onclick="startDown(this)">下载</button></div>
+    </div>
+  </div>
+
+  <!-- 新增：文档手册 -->
+  <div class="sec">
+    <div class="sec-tit">官方文档 & 手册</div>
+    <div class="list">
+      <div class="file" data-type="direct" data-url="https://link.jiyiho.cn/orfile/down.php/a1b4dbe2ca433173a19a1dbe6634113c.pdf"><span class="name">初浔计划(典藏版)组件特色介绍.pdf</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://link.jiyiho.cn/orfile/down.php/60d09ca950301c95931b67c55981307d.pdf"><span class="name">初浔计划(典藏版)游玩手册.pdf</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://link.jiyiho.cn/orfile/down.php/d5cb11a09d272b09b371e8a4d5ffda7e.pdf"><span class="name">永恒随想录组件特色介绍.pdf</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://link.jiyiho.cn/orfile/down.php/14e12100a3890ecfb3f1864b6884fe73.pdf"><span class="name">永恒随想录风景图鉴.pdf</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://link.jiyiho.cn/orfile/down.php/610171950acfb9a0fc83d71c0151598e.pdf"><span class="name">天圆引擎正式版开发文档.pdf</span><button onclick="startDown(this)">下载</button></div>
+    </div>
+  </div>
+
+  <!-- 新增：高清图包 -->
+  <div class="sec">
+    <div class="sec-tit">官方高清图包</div>
+    <div class="list">
+      <div class="file" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL2kvYy9iMjdlOTMwZGY2NjFiMzFhL0lRQXJFbjQ0SHVIRlRaek5VRzAxT00yekFlS0pEemlvZnctLUVQTi0tQjQzNE13.jpg"><span class="name">永恒随想录传送锚点地图.jpg</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL2kvYy9iMjdlOTMwZGY2NjFiMzFhL0lRRDd0dzJ0TzNTY1FKVDhnX1RKMEpFRkFRMlFkc2VhNVBIMlFFblNudlowMU04.jpg"><span class="name">初浔计划工程图.jpg</span><button onclick="startDown(this)">下载</button></div>
+      <div class="file" data-type="direct" data-url="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL2kvYy9iMjdlOTMwZGY2NjFiMzFhL0lRQ19Nb0hNLUpBYVE1Q18zSUltNDdVdkFTdVdyaFllRXdBRFQ5cjBDNU96S0tn.jpg"><span class="name">初浔计划太空地图.jpg</span><button onclick="startDown(this)">下载</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const loading = document.getElementById('loading');
+const toast = document.getElementById('toast');
+const dFrame = document.getElementById('dFrame');
+let tipTimer;
+
+function showTip(text) {
+  clearTimeout(tipTimer);
+  toast.textContent = text;
+  toast.classList.add('show');
+  tipTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+}
+
+async function parseLanzou(url) {
+  try {
+    const api = `https://api.bugpk.com/api/lanzou?url=${encodeURIComponent(url)}&pwd=`;
+    const res = await fetch(api);
+    const data = await res.json();
+    return data.code === 200 && data.data?.url ? data.data.url : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function silentDown(url) {
+  dFrame.src = url;
+}
+
+async function startDown(el) {
+  const box = el.closest('[data-type]');
+  const type = box.dataset.type;
+  const url = box.dataset.url;
+  
+  loading.style.display = 'flex';
+  showTip('处理中...');
+  
+  try {
+    if (type === 'direct') {
+      silentDown(url);
+      showTip('已发起下载');
+    } else {
+      showTip('正在解析..');
+      const realUrl = await parseLanzou(url);
+      if (realUrl) {
+        silentDown(realUrl);
+        showTip('解析成功，开始下载');
+      } else {
+        showTip('解析失败，请重试');
+      }
+    }
+  } catch (e) {
+    showTip('下载异常');
+  } finally {
+    loading.style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>
