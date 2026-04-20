@@ -1,2 +1,0 @@
-# hxzxs.github.io
-HXZXS
